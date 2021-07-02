@@ -6,26 +6,26 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class EntitySaver {
 
-    FileConfiguration configuration = EntityFileGenerator.getEntityFile();
+    private static final FileConfiguration configuration = EntityFileGenerator.getEntityFile();
 
-    List<Entity> list = new ArrayList<>();
+    private static final HashMap<String, Entity> map = new HashMap<>();
 
-    public EntitySaver() {
+    public void loadHashMap() {
         ConfigurationSection sec = configuration.getConfigurationSection("Entities");
         if (sec != null) {
             for (String key : sec.getKeys(false)) {
                 String path = "Entities." + key + ".";
-                list.add(new Entity(configuration.getString(path + "name"), configuration.getDouble(path + "speed"), configuration.getInt(path + "health"), (EntityType) configuration.get(path + "type"), configuration.getBoolean(path + "baby")));
+                map.put(configuration.getString(path + "name"), new Entity(configuration.getString(path + "name"), configuration.getDouble(path + "speed"), configuration.getInt(path + "health"), (EntityType) configuration.get(path + "type"), configuration.getBoolean(path + "baby")));
             }
         }
     }
 
-    public List<Entity> getEntityList() {
-        return this.list;
+
+    public static Entity getEntityFromConfig(String configsName){
+        return map.get(configsName);
     }
 }

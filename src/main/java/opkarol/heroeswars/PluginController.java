@@ -2,6 +2,7 @@ package opkarol.heroeswars;
 
 import opkarol.heroeswars.classes.database.ClassFileGenerator;
 import opkarol.heroeswars.commands.classes.Executor;
+import opkarol.heroeswars.entity.database.EntitySaver;
 
 import java.util.Objects;
 
@@ -15,6 +16,7 @@ public class PluginController {
         registerCommands();
         registerEvents();
         new ClassFileGenerator();
+        new EntitySaver().loadHashMap();
     }
 
     protected void registerCommands() {
