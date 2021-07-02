@@ -7,21 +7,21 @@ import java.util.Objects;
 
 public class PluginController {
 
-    public PluginController(){
+    public PluginController() {
         initalize();
     }
 
-    protected void initalize(){
+    protected void initalize() {
         registerCommands();
         registerEvents();
         new ClassFileGenerator();
     }
 
-    protected void registerCommands(){
+    protected void registerCommands() {
         Objects.requireNonNull(Heroeswars.getPlugin().getCommand("class")).setExecutor(new Executor());
     }
 
-    protected void registerEvents(){
+    protected void registerEvents() {
 
     }
 

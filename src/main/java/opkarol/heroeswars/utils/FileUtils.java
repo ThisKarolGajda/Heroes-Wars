@@ -15,11 +15,11 @@ public class FileUtils {
         }
     }
 
-    public static void addDefault(FileConfiguration configuration, String path, Object object){
+    public static void addDefault(FileConfiguration configuration, String path, Object object) {
         configuration.addDefault(path, object);
     }
 
-    public static void setObject(FileConfiguration configuration, String path, Object object){
+    public static void setObject(FileConfiguration configuration, String path, Object object) {
         configuration.set(path, object);
     }
 }

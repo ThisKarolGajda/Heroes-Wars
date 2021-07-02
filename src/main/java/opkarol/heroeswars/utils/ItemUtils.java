@@ -9,8 +9,8 @@ import org.bukkit.inventory.meta.tags.ItemTagType;
 
 public class ItemUtils {
 
-    public static ItemStack setDataOnItemStack(ItemStack item, String key){
-        if(item == null) return null;
+    public static ItemStack setDataOnItemStack(ItemStack item, String key) {
+        if (item == null) return null;
 
         NamespacedKey access = new NamespacedKey(Heroeswars.getPlugin(), key);
         ItemMeta itemMeta = item.getItemMeta();
@@ -20,8 +20,8 @@ public class ItemUtils {
         return item;
     }
 
-    public static boolean haveItemStackData(ItemStack item, String key){
-        if(item == null) return false;
+    public static boolean haveItemStackData(ItemStack item, String key) {
+        if (item == null) return false;
 
         NamespacedKey access = new NamespacedKey(Heroeswars.getPlugin(), key);
         ItemMeta itemMeta = item.getItemMeta();

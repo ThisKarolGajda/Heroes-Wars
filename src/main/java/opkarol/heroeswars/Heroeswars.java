@@ -21,7 +21,7 @@ public final class Heroeswars extends JavaPlugin {
         return heroesWars;
     }
 
-    public static PluginController getPluginController(){
+    public static PluginController getPluginController() {
         return pluginController;
     }
 }

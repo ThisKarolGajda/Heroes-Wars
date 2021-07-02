@@ -4,6 +4,7 @@ import opkarol.heroeswars.classes.Class;
 import opkarol.heroeswars.classes.database.ClassFileGenerator;
 import opkarol.heroeswars.utils.ColorUtils;
 import opkarol.heroeswars.utils.ItemUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -13,9 +14,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class GetItemFromClassObject {
     public static String key = ClassFileGenerator.getConfigurationSettings().getString("Secret-Key"); //if key is on item -> its visible
 
-    public ItemStack getItemFromClass(Material material, Class classObject){
-        if(classObject.isVisibleInGui()) {
-            ItemStack item = new ItemStack(material);
+    public ItemStack getItemFromClass(Class classObject) {
+        if (classObject.isVisibleInGui()) {
+            Material mat = null;
+            if (classObject.getMaterial() == null) {
+                Bukkit.broadcastMessage("Your classes's material are valid! Null!");
+                return null;
+            }
+            mat = classObject.getMaterial();
+            ItemStack item = new ItemStack(mat);
             ItemMeta meta = item.getItemMeta();
 
             assert meta != null;
@@ -34,7 +41,7 @@ public class GetItemFromClassObject {
             return ItemUtils.setDataOnItemStack(item, key);
         }
 
-    return null;
+        return null;
 
     }
 }

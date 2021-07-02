@@ -1,5 +1,7 @@
 package opkarol.heroeswars.classes;
 
+import org.bukkit.Material;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,18 +11,20 @@ public class Class {
     public boolean visibleInGui;
     public boolean glowing;
     public boolean hiddenAttributes;
+    public Material material;
     //public items
 
-    public Class(String name2, List<String> lore2, boolean visibleInGui2, int slotInGui2, boolean glowing2, boolean hiddenAttributes2){
+    public Class(String name2, List<String> lore2, boolean visibleInGui2, int slotInGui2, boolean glowing2, boolean hiddenAttributes2, Material material2) {
         setName(name2);
         setLore((ArrayList<String>) lore2);
         setVisibleInGui(visibleInGui2);
         setGlowing(glowing2);
         setHiddenAttributes(hiddenAttributes2);
+        setMaterial(material2);
     }
 
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -36,8 +40,12 @@ public class Class {
         this.glowing = glowing;
     }
 
-    public void setHiddenAttributes(boolean hiddenAttributes){
+    public void setHiddenAttributes(boolean hiddenAttributes) {
         this.hiddenAttributes = hiddenAttributes;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
     }
 
     public String getName() {
@@ -52,6 +60,9 @@ public class Class {
         return visibleInGui;
     }
 
+    public Material getMaterial() {
+        return material;
+    }
 
     public boolean isGlowing() {
         return glowing;

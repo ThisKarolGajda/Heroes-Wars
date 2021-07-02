@@ -13,7 +13,7 @@ public class ClassFileGenerator {
     protected String guiName = "&b&lClasses";
     protected int guiSize = 27;
 
-    public ClassFileGenerator(){
+    public ClassFileGenerator() {
         saveCustomYml(configuration, classFile);
         setConfigurationSettings();
         saveCustomYml(configurationSettings, classFileSettings);
@@ -22,7 +22,7 @@ public class ClassFileGenerator {
     private static final File classFile = new File(Heroeswars.getPlugin().getDataFolder() + "/classes/class.yml");
     private static final FileConfiguration configuration = YamlConfiguration.loadConfiguration(classFile);
 
-    public static FileConfiguration getConfiguration(){
+    public static FileConfiguration getConfiguration() {
         return configuration;
     }
 
@@ -30,8 +30,8 @@ public class ClassFileGenerator {
     private static final FileConfiguration configurationSettings = YamlConfiguration.loadConfiguration(classFileSettings);
 
 
-    public void setConfigurationSettings(){
-        if(!classFileSettings.exists()){
+    public void setConfigurationSettings() {
+        if (!classFileSettings.exists()) {
             setObject(configurationSettings, "Secret-Key", key);
             setObject(configurationSettings, "Gui.name", guiName);
             setObject(configurationSettings, "Gui.size", guiSize);
@@ -41,7 +41,7 @@ public class ClassFileGenerator {
         }
     }
 
-    public static FileConfiguration getConfigurationSettings(){
+    public static FileConfiguration getConfigurationSettings() {
         return configurationSettings;
     }
 }
