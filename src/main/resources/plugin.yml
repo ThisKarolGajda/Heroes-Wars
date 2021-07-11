@@ -1,6 +1,6 @@
 name: HeroesAndWars
 version: ${project.version}
-main: opkarol.heroeswars.HeroesWars
+main: opkarol.heroeswars.Heroeswars
 api-version: 1.17
 authors: [ OpKarol ]
 description: Fun minigame
@@ -8,3 +8,4 @@ description: Fun minigame
 commands:
   class:
     description: Opens gui with classes
+  entity:

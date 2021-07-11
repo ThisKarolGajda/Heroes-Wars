@@ -19,11 +19,18 @@ public class ZombieObject {
         zombie.setBaby(entityObject.isBaby());
 
         zombie.setRemoveWhenFarAway(false);
-        zombie.setAI(false);
+        zombie.setAI(true);
 
+        zombie.setMaxHealth(entityObject.getHp());
         zombie.setHealth(entityObject.getHp());
 
         Objects.requireNonNull(zombie.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED)).setBaseValue(entityObject.getSpeed());
 
+    }
+
+    public ZombieObject(Entity entityObject, Location location, int times){
+        for (int i = 0; i < times; i++){
+            new ZombieObject(entityObject, location);
+        }
     }
 }

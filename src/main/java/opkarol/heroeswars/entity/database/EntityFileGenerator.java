@@ -26,12 +26,11 @@ public class EntityFileGenerator {
 
 /*
 Entities:
- Entity1:
-  name:
-  speed:
-  health:
-  type:
-  baby:
-  (maybe)effects:
+ 1:
+  name: T
+  speed: 2f
+  health: 20
+  type: Zombie
+  baby: true
 
  */
