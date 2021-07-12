@@ -1,0 +1,20 @@
+#class.yml
+
+Classes:
+  Class1:
+    name: '&b&lWarrior'
+    lore:
+    - ''
+    - '&0&m&l-----------------'
+    - '&6&lLegendary class'
+    - '&7Special abilites'
+    - '&0&m&l-----------------'
+    - '&eOnly this day this'
+    - '&eclass is very cheap'
+    - ''
+    - '&9&l50$ &8&m120$'
+    visibleInGui: true
+    glowing: false
+    hiddenAttributes: true
+    material: DIRT
+

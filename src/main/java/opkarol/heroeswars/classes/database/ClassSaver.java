@@ -23,7 +23,7 @@ public class ClassSaver {
         if (sec != null) {
             for (String key : sec.getKeys(false)) {
                 String path = "Classes." + key + ".";
-                if (Informator.isDebugModeActive())Bukkit.broadcastMessage(configuration.getString(path + "material"));
+                if (Informator.isDebugModeActive())Bukkit.broadcastMessage(Objects.requireNonNull(configuration.getString(path + "material")));
                 classList.add(new Class(configuration.getString(path + "name"), configuration.getStringList(path + "lore"), configuration.getBoolean(path + "visibleInGui"), configuration.getInt(path + "slotInGui"), configuration.getBoolean(path + "glowing"), configuration.getBoolean(path + "hiddenAttributes"), Material.getMaterial(Objects.requireNonNull(configuration.getString(path + "material")))));
             }
         }
