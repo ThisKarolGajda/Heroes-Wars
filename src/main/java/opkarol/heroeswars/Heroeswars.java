@@ -1,5 +1,6 @@
 package opkarol.heroeswars;
 
+import opkarol.heroeswars.game.arena.database.ArenaDatabase;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Heroeswars extends JavaPlugin {
@@ -14,6 +15,7 @@ public final class Heroeswars extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        new ArenaDatabase().saveArenasToFile();
         heroesWars = null;
     }
 

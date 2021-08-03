@@ -23,7 +23,7 @@ Classes:
 Arenas:
  Arena1:
   maxPlayers: 2
-  spawn1: null
-  spawn2: null
-  bound1: null
-  bound2: null
+  spawn1: 0
+  spawn2: 0
+  bound1: 0
+  bound2: 0

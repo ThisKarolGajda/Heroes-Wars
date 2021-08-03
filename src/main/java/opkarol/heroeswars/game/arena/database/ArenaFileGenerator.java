@@ -25,6 +25,8 @@ public class ArenaFileGenerator {
         return configuration;
     }
 
+    public static File getArenaFileMain(){ return file;}
+
     private static final File file2 = new File(Heroeswars.getPlugin().getDataFolder() + "/arena/arenaSettings.yml");
     private static final FileConfiguration configuration2 = YamlConfiguration.loadConfiguration(file2);
 

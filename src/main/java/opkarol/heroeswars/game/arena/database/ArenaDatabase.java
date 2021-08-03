@@ -1,9 +1,9 @@
 package opkarol.heroeswars.game.arena.database;
 
 import opkarol.heroeswars.game.arena.Arena;
+import opkarol.heroeswars.utils.FileUtils;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +33,19 @@ public class ArenaDatabase {
                 path = "Arenas." + key + ".";
                 addToArenaList(new Arena(key, getArenaFile().getInt(path + "maxPlayers"), (Location) getArenaFile().get(path + "spawn1"), (Location) getArenaFile().get(path + "spawn2"), (Location) getArenaFile().get(path + "bound1"), (Location) getArenaFile().get(path + "bound2"), false, new ArrayList<>()));
             }
+        }
+    }
+
+    public void saveArenasToFile(){
+        String path;
+        for (Arena arena : arenaList){
+            path = "Arenas." + arena.getArenaName() + ".";
+            getArenaFile().set(path + "maxPlayers", arena.getMaxPlayers());
+            getArenaFile().set(path + "spawn1", arena.getSpawn1());
+            getArenaFile().set(path + "spawn2", arena.getSpawn2());
+            getArenaFile().set(path + "bound1", arena.getBound1());
+            getArenaFile().set(path + "bound2", arena.getBound2());
+            FileUtils.saveCustomYml(getArenaFile(), getArenaFileMain());
         }
     }
 
