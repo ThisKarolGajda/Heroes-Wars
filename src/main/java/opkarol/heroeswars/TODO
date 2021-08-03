@@ -18,3 +18,12 @@ Classes:
     hiddenAttributes: true
     material: DIRT
 
+
+#arenas.yml
+Arenas:
+ Arena1:
+  maxPlayers: 2
+  spawn1: null
+  spawn2: null
+  bound1: null
+  bound2: null

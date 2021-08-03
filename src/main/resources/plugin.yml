@@ -9,3 +9,5 @@ commands:
   class:
     description: Opens gui with classes
   entity:
+  arena:
+  arenaeditor:

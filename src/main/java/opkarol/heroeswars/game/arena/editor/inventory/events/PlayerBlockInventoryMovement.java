@@ -1,0 +1,20 @@
+package opkarol.heroeswars.game.arena.editor.inventory.events;
+
+import opkarol.heroeswars.game.arena.database.ArenaDatabase;
+import opkarol.heroeswars.game.arena.editor.inventory.holder.EditorInventoryHolder;
+import opkarol.heroeswars.utils.ArenaUtils;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+
+public class PlayerBlockInventoryMovement implements Listener {
+
+    @EventHandler
+    public void playerBlockInventoryMovement(InventoryClickEvent event){
+        if (event.getInventory().getHolder() instanceof EditorInventoryHolder) {
+            event.setCancelled(true);
+            event.getWhoClicked().sendMessage(String.valueOf(ArenaUtils.getArenaInformation(ArenaDatabase.getArenaFromList(event.getSlot() + 1))));
+            event.getWhoClicked().closeInventory();
+        }
+    }
+}
