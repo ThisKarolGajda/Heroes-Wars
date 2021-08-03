@@ -1,6 +1,8 @@
 package opkarol.heroeswars.commands.arena;
 
+import opkarol.heroeswars.game.arena.database.ArenaDatabase;
 import opkarol.heroeswars.game.arena.editor.inventory.EditorInventory;
+import opkarol.heroeswars.utils.ArenaUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,7 +19,12 @@ public class Executor implements CommandExecutor {
         if (!player.hasPermission("H&W.test") || !player.isOp()) {
             return false;
         }
-        player.openInventory(new EditorInventory().getInventory());
-        return false;
+        if (args.length != 0){
+            if (ArenaDatabase.getArenaFromList(args[0]) == null) return false;
+           sender.spigot().sendMessage(ArenaUtils.getArenaInformation(ArenaDatabase.getArenaFromList(args[0])));
+        } else {
+            player.openInventory(new EditorInventory().getInventory());
+        }
+        return true;
     }
 }

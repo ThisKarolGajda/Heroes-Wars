@@ -37,12 +37,7 @@ public class ArenaDatabase {
     }
 
     public static Arena getArenaFromList(int number){
-        Arena arena = getArenaList().get(number - 1);
-        if(arena == null){
-            return new Arena();
-        } else {
-            return arena;
-        }
+        return getArenaList().get(number - 1);
     }
 
     public static Arena getArenaFromList(String arenaName){
@@ -51,6 +46,6 @@ public class ArenaDatabase {
                 return arena;
             }
         }
-        return new Arena();
+        return null;
     }
 }

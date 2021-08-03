@@ -13,7 +13,7 @@ public class PlayerBlockInventoryMovement implements Listener {
     public void playerBlockInventoryMovement(InventoryClickEvent event){
         if (event.getInventory().getHolder() instanceof EditorInventoryHolder) {
             event.setCancelled(true);
-            event.getWhoClicked().sendMessage(String.valueOf(ArenaUtils.getArenaInformation(ArenaDatabase.getArenaFromList(event.getSlot() + 1))));
+            event.getWhoClicked().spigot().sendMessage(ArenaUtils.getArenaInformation(ArenaDatabase.getArenaFromList(event.getSlot() + 1)));
             event.getWhoClicked().closeInventory();
         }
     }
