@@ -8,6 +8,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Executor implements CommandExecutor {
+    ClassesMainGui cgui;
+
+    public Executor(){
+        cgui = new ClassesMainGui(new ClassSaver().getClassList());
+        cgui.setGui();
+    }
 
 
     @Override
@@ -19,7 +25,7 @@ public class Executor implements CommandExecutor {
         if (!player.hasPermission("H&W.test") || !player.isOp()) {
             return false;
         }
-        player.openInventory(new ClassesMainGui(new ClassSaver().getClassList()).gui);
+        player.openInventory(cgui.gui);
         return false;
     }
 

@@ -18,7 +18,7 @@ public class GetItemFromClassObject {
         if (classObject.isVisibleInGui()) {
             Material mat = null;
             if (classObject.getMaterial() == null) {
-                Bukkit.broadcastMessage("Your classes's material are valid! Null!");
+                Bukkit.broadcastMessage("Your classes's material are invalid! Null!");
                 return null;
             }
             mat = classObject.getMaterial();
