@@ -1,7 +1,5 @@
 package opkarol.heroeswars.entity;
 
-import org.bukkit.entity.EntityType;
-
 public class Entity {
 
     //Hp, speed, name(tag), effects, entity type

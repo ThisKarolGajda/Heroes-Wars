@@ -11,7 +11,7 @@ public class PlayerBreakBlockEvent implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void playerBreakBlockEvent(BlockBreakEvent event){
-        if(!EditorHolderDatabase.isActiveEditor(event.getPlayer())) return;
+        if(EditorHolderDatabase.isNotActiveEditor(event.getPlayer())) return;
         Editor.setReturnValue(event.getBlock().getLocation());
         event.setCancelled(true);
     }

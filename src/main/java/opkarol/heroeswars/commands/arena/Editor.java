@@ -40,7 +40,7 @@ public class Editor implements CommandExecutor {
             return false;
         }
 
-        if (!EditorHolderDatabase.isActiveEditor(player)) {
+        if (EditorHolderDatabase.isNotActiveEditor(player)) {
             String object = args[1];
             Arena arena = ArenaDatabase.getArenaFromList(args[0]);
             assert arena != null;

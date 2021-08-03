@@ -20,8 +20,8 @@ public class EditorHolderDatabase {
         activeEditor.put(player, true);
     }
 
-    public static boolean isActiveEditor(Player player){
-        return activeEditor.containsKey(player);
+    public static boolean isNotActiveEditor(Player player){
+        return !activeEditor.containsKey(player);
     }
 
     public static void removeEditor(Player player){
