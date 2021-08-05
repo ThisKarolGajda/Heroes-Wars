@@ -22,6 +22,12 @@ public class Editor implements CommandExecutor {
     public static void setReturnValue(Object returnValue) {
         Editor.returnValue = returnValue;
     }
+    private static String clickOnBlockSpawn;
+    private static String successfulSetSpawns;
+    private static String successfulSetSpawn1;
+    private static String clickOnBlockBound;
+    private static String successfulSetBounds;
+    private static String successfulSetBound1;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -52,18 +58,18 @@ public class Editor implements CommandExecutor {
                     BukkitTask task = new BukkitRunnable() {
                         @Override
                         public void run() {
-                            player.sendMessage("Naciśnij LPM na blok spawnu " + i[0]);
+                            player.sendMessage(clickOnBlockSpawn + i[0]);
                             if (getReturnValue() != null) {
                                 if (i[0] == 1) {
                                     arena.setSpawn1((Location) returnValue);
                                     i[0]++;
                                     setReturnValue(null);
-                                    player.sendMessage("Pomyślnie ustawiono spawn 1!");
+                                    player.sendMessage(successfulSetSpawn1);
                                 } else {
                                     arena.setSpawn2((Location) returnValue);
                                     EditorHolderDatabase.removeEditor(player);
                                     this.cancel();
-                                    player.sendMessage("Spawny zostały ustawione pomyślnie!");
+                                    player.sendMessage(successfulSetSpawns);
                                 }
                             }
                         }
@@ -77,18 +83,18 @@ public class Editor implements CommandExecutor {
                     BukkitTask task2 = new BukkitRunnable() {
                         @Override
                         public void run() {
-                            player.sendMessage("Naciśnij LPM na blok granicy " + i2[0]);
+                            player.sendMessage(clickOnBlockBound + i2[0]);
                             if (getReturnValue() != null) {
                                 if (i2[0] == 1) {
                                     arena.setBound1((Location) returnValue);
                                     i2[0]++;
                                     setReturnValue(null);
-                                    player.sendMessage("Pomyślnie ustawiono granicę 1!");
+                                    player.sendMessage(successfulSetBound1);
                                 } else {
                                     arena.setBound2((Location) returnValue);
                                     EditorHolderDatabase.removeEditor(player);
                                     this.cancel();
-                                    player.sendMessage("Granicę zostały ustawione pomyślnie!");
+                                    player.sendMessage(successfulSetBounds);
                                 }
                             }
                         }
@@ -98,5 +104,29 @@ public class Editor implements CommandExecutor {
             }
         }
         return false;
+    }
+
+    public static void setClickOnBlockBound(String clickOnBlockBound) {
+        Editor.clickOnBlockBound = clickOnBlockBound;
+    }
+
+    public static void setClickOnBlockSpawn(String clickOnBlockSpawn) {
+        Editor.clickOnBlockSpawn = clickOnBlockSpawn;
+    }
+
+    public static void setSuccessfulSetBound1(String successfulSetBound1) {
+        Editor.successfulSetBound1 = successfulSetBound1;
+    }
+
+    public static void setSuccessfulSetBounds(String successfulSetBounds) {
+        Editor.successfulSetBounds = successfulSetBounds;
+    }
+
+    public static void setSuccessfulSetSpawn1(String successfulSetSpawn1) {
+        Editor.successfulSetSpawn1 = successfulSetSpawn1;
+    }
+
+    public static void setSuccessfulSetSpawns(String successfulSetSpawns) {
+        Editor.successfulSetSpawns = successfulSetSpawns;
     }
 }

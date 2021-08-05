@@ -8,6 +8,8 @@ import opkarol.heroeswars.game.arena.database.ArenaFileGenerator;
 import opkarol.heroeswars.game.arena.editor.inventory.EditorInventory;
 import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBlockInventoryMovement;
 import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBreakBlockEvent;
+import opkarol.heroeswars.game.money.events.PlayerJoiningServer;
+import opkarol.heroeswars.messagesFile.FileCreator;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
@@ -31,18 +33,23 @@ public class PluginController {
         Objects.requireNonNull(Heroeswars.getPlugin().getCommand("entity")).setExecutor(new opkarol.heroeswars.commands.entity.Executor());
         Objects.requireNonNull(Heroeswars.getPlugin().getCommand("arena")).setExecutor(new opkarol.heroeswars.commands.arena.Executor());
         Objects.requireNonNull(Heroeswars.getPlugin().getCommand("arenaeditor")).setExecutor(new opkarol.heroeswars.commands.arena.Editor());
+        Objects.requireNonNull(Heroeswars.getPlugin().getCommand("money")).setExecutor(new opkarol.heroeswars.commands.money.Executor());
+
     }
 
     protected void registerEvents() {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new PlayerBlockInventoryMovement(), Heroeswars.getPlugin());
         pluginManager.registerEvents(new PlayerBreakBlockEvent(), Heroeswars.getPlugin());
+        pluginManager.registerEvents(new PlayerJoiningServer(), Heroeswars.getPlugin());
     }
 
     protected void generateFiles(){
         new ClassFileGenerator();
         new EntityFileGenerator();
         new ArenaFileGenerator();
+        new FileCreator().refreshValues();
+
     }
 
 }

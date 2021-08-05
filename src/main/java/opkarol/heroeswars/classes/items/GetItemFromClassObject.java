@@ -17,10 +17,8 @@ public class GetItemFromClassObject {
     public ItemStack getItemFromClass(Class classObject) {
         if (classObject.isVisibleInGui()) {
             Material mat = null;
-            if (classObject.getMaterial() == null) {
-                Bukkit.broadcastMessage("Your classes's material are invalid! Null!");
-                return null;
-            }
+            if (classObject.getMaterial() == null) return null;
+
             mat = classObject.getMaterial();
             ItemStack item = new ItemStack(mat);
             ItemMeta meta = item.getItemMeta();

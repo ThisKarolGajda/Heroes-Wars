@@ -12,7 +12,6 @@ public class Class {
     public boolean glowing;
     public boolean hiddenAttributes;
     public Material material;
-    //public items
 
     public Class(String name2, List<String> lore2, boolean visibleInGui2, int slotInGui2, boolean glowing2, boolean hiddenAttributes2, Material material2) {
         setName(name2);

@@ -32,9 +32,6 @@ public class ClassFileGenerator {
 
     public void setConfigurationSettings() {
         if (!classFileSettings.exists()) {
-            setObject(configurationSettings, "Secret-Key", key);
-            setObject(configurationSettings, "Gui.name", guiName);
-            setObject(configurationSettings, "Gui.size", guiSize);
             addDefault(configurationSettings, "Secret-Key", key);
             addDefault(configurationSettings, "Gui.name", guiName);
             addDefault(configurationSettings, "Gui.size", guiSize);

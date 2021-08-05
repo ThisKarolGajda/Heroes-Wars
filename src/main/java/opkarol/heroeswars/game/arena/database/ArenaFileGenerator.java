@@ -6,8 +6,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
+import static opkarol.heroeswars.utils.FileUtils.addDefault;
 import static opkarol.heroeswars.utils.FileUtils.saveCustomYml;
-import static opkarol.heroeswars.utils.FileUtils.setObject;
 
 public class ArenaFileGenerator {
 
@@ -36,8 +36,8 @@ public class ArenaFileGenerator {
 
     public static void setConfigurationSettings(){
         if (!file2.exists()){
-            setObject(configuration2, "Inventory.name","Inventory Name");
-            setObject(configuration2, "Inventory.size", 27);
+            addDefault(configuration2, "Inventory.name","Inventory Name");
+            addDefault(configuration2, "Inventory.size", 27);
         }
     }
 }
