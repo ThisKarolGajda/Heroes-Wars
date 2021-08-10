@@ -8,6 +8,7 @@ import opkarol.heroeswars.game.arena.database.ArenaFileGenerator;
 import opkarol.heroeswars.game.arena.editor.inventory.EditorInventory;
 import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBlockInventoryMovement;
 import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBreakBlockEvent;
+import opkarol.heroeswars.game.mode.GameDatabase;
 import opkarol.heroeswars.game.money.events.PlayerJoiningServer;
 import opkarol.heroeswars.messagesFile.FileCreator;
 import org.bukkit.Bukkit;
@@ -49,6 +50,7 @@ public class PluginController {
         new EntityFileGenerator();
         new ArenaFileGenerator();
         new FileCreator().refreshValues();
+        new GameDatabase().setLists();
 
     }
 

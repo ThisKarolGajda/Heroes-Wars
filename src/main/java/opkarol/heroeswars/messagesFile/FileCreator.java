@@ -24,13 +24,6 @@ public class FileCreator {
     private static final File file = new File(Heroeswars.getPlugin().getDataFolder() + "/messages.yml");
     private static final FileConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 
-    private static String clickOnBlockSpawn;
-    private static String successfulSetSpawns;
-    private static String successfulSetSpawn1;
-    private static String clickOnBlockBound;
-    private static String successfulSetBounds;
-    private static String successfulSetBound1;
-
     public void setFile(){
         if (!file.exists()){
             FileUtils.addDefault(configuration, "Money.Executor.dontHavePermission", "&cYou don't have permission to use this command!");

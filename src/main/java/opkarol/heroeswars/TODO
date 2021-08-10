@@ -27,3 +27,14 @@ Arenas:
   spawn2: 0
   bound1: 0
   bound2: 0
+
+#gameSettings.yml
+GameModes:
+ GameMode1:
+  gameName: 1
+  gameType: "name"
+  maxPlayers: 2
+GameTypes:
+ GameType1:
+  gameName:
+  gameLength:
