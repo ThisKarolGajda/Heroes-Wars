@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class PlayerBlockInventoryMovement implements Listener {
+public class PlayerBlockInventoryMovement extends QueueDatabase implements Listener {
     HashMap<Player, Queue> hashMap = new HashMap<>();
 
     @EventHandler(priority = EventPriority.MONITOR)
@@ -31,22 +31,39 @@ public class PlayerBlockInventoryMovement implements Listener {
             event.getWhoClicked().closeInventory();
         }
     }
+
     private static String addedToQueue;
     private static String removedFromQueue;
+
     public void changeActiveQueuing(Player player, Queue queue){
         if (!isActiveQueuing(player)){
             hashMap.put(player, queue);
             player.sendMessage(replaceQueueValue(addedToQueue, queue));
+            addPlayerFromQueue(queue, player);
+            replaceQueue(queue);
         } else {
             Queue oldQueue = getActiveQueue(player);
             removeActiveQueuing(player);
             if (oldQueue != queue){
                 hashMap.put(player, queue);
+                removePlayerFromQueue(oldQueue, player);
+                addPlayerFromQueue(queue, player);
+                replaceQueue(queue);
                 player.sendMessage(replaceQueueValue(addedToQueue, queue));
             } else {
+                removePlayerFromQueue(queue, player);
+                replaceQueue(queue);
                 player.sendMessage(replaceQueueValue(removedFromQueue, queue));
             }
         }
+    }
+
+    public void removePlayerFromQueue(Queue queue, Player player) {
+        queue.getPlayerQueue().remove(player);
+    }
+
+    public void addPlayerFromQueue(Queue queue, Player player) {
+        queue.getPlayerQueue().add(player);
     }
 
     public String replaceQueueValue(String message, Queue queue){

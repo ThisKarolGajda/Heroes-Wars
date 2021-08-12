@@ -24,4 +24,8 @@ public class QueueDatabase {
     public static Queue getQueueFromGameMode(GameMode mode){
         return gameQueue.get(mode);
     }
+
+    public static void replaceQueue(Queue queue) {
+        gameQueue.replace(queue.getGameMode(), queue);
+    }
 }

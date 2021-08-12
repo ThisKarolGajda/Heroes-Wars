@@ -15,7 +15,6 @@ public class QueueStarter extends QueueDatabase {
     public void runQueues(){
         for (GameMode gameMode : getGameModeList()){
             addQueueToMap(new Queue(new ArrayList<>(), gameMode));
-
         }
     }
 }
