@@ -5,6 +5,7 @@ import opkarol.heroeswars.commands.arena.Editor;
 import opkarol.heroeswars.commands.money.Executor;
 import opkarol.heroeswars.game.money.MoneyLoader;
 import opkarol.heroeswars.play.inventory.PlayInventory;
+import opkarol.heroeswars.play.inventory.events.PlayerBlockInventoryMovement;
 import opkarol.heroeswars.utils.ColorUtils;
 import opkarol.heroeswars.utils.FileUtils;
 import opkarol.heroeswars.utils.MoneyUtils;
@@ -43,6 +44,8 @@ public class FileCreator {
             addDefault(configuration, "Play.Inventory.GUI.title", "&b&lPlay!");
             addDefault(configuration, "Play.Inventory.Icon.name", "%queue_icon_name%");
             addDefault(configuration, "Play.Inventory.Icon.loreText", "&7Active players: &f&l%queue_icon_size%");
+            addDefault(configuration, "Play.Inventory.Event.Queue.added", "&7You have been added to queue: &f&l%queue_name%");
+            addDefault(configuration, "Play.Inventory.Event.Queue.removed", "&7You have been removed from queue: &f&l%queue_name%");
         }
     }
 
@@ -62,6 +65,8 @@ public class FileCreator {
         PlayInventory.setSize(Integer.parseInt(getMessage("Play.Inventory.GUI.size")));
         PlayInventory.setIconLoreText(getMessage("Play.Inventory.Icon.loreText"));
         PlayInventory.setIconNameText(getMessage("Play.Inventory.Icon.name"));
+        PlayerBlockInventoryMovement.setAddedToQueue(getMessage("Play.Inventory.Event.Queue.added"));
+        PlayerBlockInventoryMovement.setRemovedFromQueue(getMessage("Play.Inventory.Event.Queue.removed"));
     }
 
     public static File getFile() {

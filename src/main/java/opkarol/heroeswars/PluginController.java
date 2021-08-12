@@ -5,12 +5,11 @@ import opkarol.heroeswars.commands.classes.Executor;
 import opkarol.heroeswars.entity.database.EntityFileGenerator;
 import opkarol.heroeswars.entity.database.EntitySaver;
 import opkarol.heroeswars.game.arena.database.ArenaFileGenerator;
-import opkarol.heroeswars.game.arena.editor.inventory.EditorInventory;
 import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBlockInventoryMovement;
 import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBreakBlockEvent;
 import opkarol.heroeswars.game.mode.GameDatabase;
 import opkarol.heroeswars.game.money.events.PlayerJoiningServer;
-import opkarol.heroeswars.game.queue.QueueStarter;
+import opkarol.heroeswars.game.queue.files.QueueStarter;
 import opkarol.heroeswars.messagesFile.FileCreator;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -45,6 +44,7 @@ public class PluginController {
         pluginManager.registerEvents(new PlayerBlockInventoryMovement(), Heroeswars.getPlugin());
         pluginManager.registerEvents(new PlayerBreakBlockEvent(), Heroeswars.getPlugin());
         pluginManager.registerEvents(new PlayerJoiningServer(), Heroeswars.getPlugin());
+        pluginManager.registerEvents(new opkarol.heroeswars.play.inventory.events.PlayerBlockInventoryMovement(), Heroeswars.getPlugin());
     }
 
     protected void generateFiles(){

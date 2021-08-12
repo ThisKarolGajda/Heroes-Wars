@@ -2,7 +2,7 @@ package opkarol.heroeswars.play.inventory;
 
 import opkarol.heroeswars.game.mode.GameMode;
 import opkarol.heroeswars.game.queue.Queue;
-import opkarol.heroeswars.game.queue.QueueDatabase;
+import opkarol.heroeswars.game.queue.files.QueueDatabase;
 import opkarol.heroeswars.play.inventory.holder.PlayInventoryHolder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

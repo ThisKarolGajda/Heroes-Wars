@@ -1,6 +1,7 @@
-package opkarol.heroeswars.game.queue;
+package opkarol.heroeswars.game.queue.files;
 
 import opkarol.heroeswars.game.mode.GameMode;
+import opkarol.heroeswars.game.queue.Queue;
 
 import java.util.HashMap;
 
