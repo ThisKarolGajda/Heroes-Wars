@@ -2,6 +2,7 @@ package opkarol.heroeswars.utils;
 
 import net.md_5.bungee.api.chat.*;
 import opkarol.heroeswars.game.arena.Arena;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ArenaUtils {
@@ -29,18 +30,15 @@ public class ArenaUtils {
         return main;
     }
 
-    @Nullable
-    public static void setHoverEvent(TextComponent textComponent, String message){
+    public static void setHoverEvent(@NotNull TextComponent textComponent, String message){
         textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(message).create()));
     }
 
-    @Nullable
-    public static void setHoverEvent(TextComponent textComponent){
+    public static void setHoverEvent(@NotNull TextComponent textComponent){
         textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click me!").create()));
     }
 
-    @Nullable
-    public static void setRunCommandClickEvent(TextComponent textComponent, String command){
+    public static void setRunCommandClickEvent(@NotNull TextComponent textComponent, String command){
         textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
     }
 }

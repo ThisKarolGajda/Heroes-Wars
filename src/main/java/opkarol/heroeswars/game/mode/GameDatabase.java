@@ -40,6 +40,10 @@ public class GameDatabase extends FileCreator {
         }
     }
 
+    public static List<GameMode> getGameModeList() {
+        return gameModeList;
+    }
+
     public GameType getGameTypeFromFile(String name, int length){
         return new GameType(name, length);
     }

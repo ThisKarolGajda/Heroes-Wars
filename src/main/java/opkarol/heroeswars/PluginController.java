@@ -10,6 +10,7 @@ import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBlockInventor
 import opkarol.heroeswars.game.arena.editor.inventory.events.PlayerBreakBlockEvent;
 import opkarol.heroeswars.game.mode.GameDatabase;
 import opkarol.heroeswars.game.money.events.PlayerJoiningServer;
+import opkarol.heroeswars.game.queue.QueueStarter;
 import opkarol.heroeswars.messagesFile.FileCreator;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -27,6 +28,7 @@ public class PluginController {
         registerEvents();
         generateFiles();
         new EntitySaver().loadHashMap();
+        new QueueStarter();
     }
 
     protected void registerCommands() {
@@ -35,7 +37,7 @@ public class PluginController {
         Objects.requireNonNull(Heroeswars.getPlugin().getCommand("arena")).setExecutor(new opkarol.heroeswars.commands.arena.Executor());
         Objects.requireNonNull(Heroeswars.getPlugin().getCommand("arenaeditor")).setExecutor(new opkarol.heroeswars.commands.arena.Editor());
         Objects.requireNonNull(Heroeswars.getPlugin().getCommand("money")).setExecutor(new opkarol.heroeswars.commands.money.Executor());
-
+        Objects.requireNonNull(Heroeswars.getPlugin().getCommand("play")).setExecutor(new opkarol.heroeswars.commands.play.Executor());
     }
 
     protected void registerEvents() {
